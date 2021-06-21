@@ -1,0 +1,41 @@
+.remove-default {
+  padding: 0;
+  margin: 0;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  overflow: hidden;
+  height: 250px;
+  width: auto;
+}
+
+.main-body p {
+  text-align: center;
+  color: black;
+}
+
+.main-body .chat-area {
+  display: flex;
+  justify-content: center;
+}
+
+.main-body .chat-button {
+  background-color: rgb(79, 199, 255);
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  z-index: 1;
+  box-shadow: 1px 1px rgb(203, 236, 253);
+}
+
+.main-body .chat-button:hover {
+    background-color: rgb(53, 188, 250);
+    box-shadow: 1px 1px rgb(169, 225, 253);
+  }
+  
