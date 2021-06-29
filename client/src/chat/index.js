@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TopNav from '../util/nav-bar/top-navigation'
 import BottomMessage from './BottomMessage';
+import socketClient from 'socket.io-client'
 import './chat.css'
+const SERVER = "http://127.0.0.1:5000";
+const socket = socketClient('http://localhost:5000', {transports: ['websocket', 'polling', 'flashsocket']});
 
 const Chat = () => {
 
@@ -13,10 +16,17 @@ const Chat = () => {
     const userId = 2;
 
     useEffect(() => {
+        socket.on('connection', () => {
+            console.log(`I'm connected with the back-end`);
+        });
+    },[])
+
+    useEffect(() => {
         scroll();
     }, [msgList])
 
     const onSubmit = (message) => {
+        socket.emit('chat', message)
         setMsgList([...msgList, { msg: message }])
     }
 

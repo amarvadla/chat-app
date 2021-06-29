@@ -19,7 +19,7 @@ const BottomMessage = (props) => {
     }
 
     return (<div className="bottom-message">
-        <input className="message-box" value={message}
+        <input className="message-box" value={message} placeholder="Pressing enter will send message !!"
             onChange={(e) => messageChange(e)} onKeyDown={(e) => {
                 if (e.code === "Enter" || e.code === "NumpadEnter") return onSend()
             }}>
