@@ -32,9 +32,10 @@ server.on('listening', (listenData) => {
 })
 
 io.on('connection', socket => {
-    socket.emit('connection', null);
 
-    socket.on('chat', (message) => {
-        console.log(message)
+    socket.on('chat', (payload) => {
+        console.log(payload)
+        // socket.emit('messageChannel', message);
+        socket.broadcast.emit('messageChannel', payload);
     })
 })
